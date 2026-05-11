@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { LayoutDashboard, Menu, PenBox, X } from 'lucide-react'
-
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
