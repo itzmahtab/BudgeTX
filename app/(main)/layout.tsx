@@ -1,10 +1,13 @@
 import Header from "@/components/header";
+import { checkUser } from "@/lib/checkUser";
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const user = await checkUser();
+
   return (
     <>
       <Header />
