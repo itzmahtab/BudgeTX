@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { howItWorksData } from "@/data/landing";
 import { testimonialsData } from "@/data/landing";
 import Image from "next/image";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
