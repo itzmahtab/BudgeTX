@@ -1,5 +1,10 @@
 "use client";
 
+import { ArrowUpRight, ArrowDownRight, CreditCard } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
+import useFetch from "@/hooks/use-fetch";
 import {
   Card,
   CardContent,
@@ -7,21 +12,56 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import Link from "next/link";
-import { useMemo } from "react";
+import { updateDefaultAccount } from "@/actions/account";
+import { toast } from "sonner";
 
-export function AccountCard({ account }: { account: any }) {
-  const { name, type, balance, isDefault, id, _count } = account;
+interface AccountData {
+  id: string;
+  name: string;
+  type: "CURRENT" | "SAVINGS";
+  balance: number;
+  isDefault: boolean;
+  userId: string;
+  createdAt: string;
+  updatedAt: string;
+  _count: {
+    transactions: number;
+  };
+}
 
-  const formattedBalance = useMemo(() => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2,
-    }).format(balance);
-  }, [balance]);
+export function AccountCard({ account }: { account: AccountData }) {
+  const { name, type, balance, id, isDefault } = account;
+
+  const {
+    loading: updateDefaultLoading,
+    fn: updateDefaultFn,
+    data: updatedAccount,
+    error,
+  } = useFetch(updateDefaultAccount);
+
+  const handleDefaultChange = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Prevent navigation
+
+    if (isDefault) {
+      toast.warning("You need atleast 1 default account");
+      return; // Don't allow toggling off the default account
+    }
+
+    await updateDefaultFn(id);
+  };
+
+  useEffect(() => {
+    if (updatedAccount?.success) {
+      toast.success("Default account updated successfully");
+    }
+  }, [updatedAccount]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message || "Failed to update default account");
+    }
+  }, [error]);
 
   return (
     <Card className="hover:shadow-md transition-shadow group relative">
@@ -30,10 +70,16 @@ export function AccountCard({ account }: { account: any }) {
           <CardTitle className="text-sm font-medium capitalize">
             {name}
           </CardTitle>
-          <Switch checked={isDefault} onClick={(e) => e.preventDefault()} />
+          <Switch
+            checked={isDefault}
+            onClick={handleDefaultChange}
+            disabled={updateDefaultLoading}
+          />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formattedBalance}</div>
+          <div className="text-2xl font-bold">
+            ${balance.toFixed(2)}
+          </div>
           <p className="text-xs text-muted-foreground">
             {type.charAt(0) + type.slice(1).toLowerCase()} Account
           </p>
