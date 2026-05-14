@@ -132,7 +132,7 @@ async function generateFinancialInsights(stats: { totalIncome: number; totalExpe
   const geminiApiKey = process.env.GEMINI_API_KEY;
   if (!geminiApiKey) throw new Error("GEMINI_API_KEY is not set");
   const genAI = new GoogleGenerativeAI(geminiApiKey);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   const prompt = `
     Analyze this financial data and provide 3 concise, actionable insights.
