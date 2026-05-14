@@ -11,3 +11,18 @@ export const categoryColors: Record<string, string> = {
   Business: "#06b6d4",
   Other: "#64748b",
 };
+
+export const defaultCategories = [
+  { id: "Food", name: "Food", type: "EXPENSE" },
+  { id: "Transport", name: "Transport", type: "EXPENSE" },
+  { id: "Entertainment", name: "Entertainment", type: "EXPENSE" },
+  { id: "Shopping", name: "Shopping", type: "EXPENSE" },
+  { id: "Utilities", name: "Utilities", type: "EXPENSE" },
+  { id: "Health", name: "Health", type: "EXPENSE" },
+  { id: "Education", name: "Education", type: "EXPENSE" },
+  { id: "Rent", name: "Rent", type: "EXPENSE" },
+  { id: "Other", name: "Other", type: "EXPENSE" },
+  { id: "Salary", name: "Salary", type: "INCOME" },
+  { id: "Business", name: "Business", type: "INCOME" },
+  { id: "Other", name: "Other", type: "INCOME" },
+];
