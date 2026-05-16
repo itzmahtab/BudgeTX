@@ -6,7 +6,6 @@ import { featuresData } from "@/data/landing";
 import { Card, CardContent } from "@/components/ui/card";
 import { howItWorksData } from "@/data/landing";
 import { testimonialsData } from "@/data/landing";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -76,16 +75,12 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonialsData.map((testimonial, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className={`p-6 border-l-4 ${testimonial.borderColor}`}>
                 <CardContent className="pt-4">
                   <div className="flex items-center mb-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
+                    <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white text-sm font-bold`}>
+                      {testimonial.initials}
+                    </div>
                     <div className="ml-4">
                       <div className="font-semibold">{testimonial.name}</div>
                       <div className="text-sm text-gray-600">
@@ -109,7 +104,7 @@ export default function HomePage() {
           </h2>
           <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
             Join thousands of users who are already managing their finances
-            smarter with Welth
+            smarter with BudgeTX
           </p>
           <Link href="/dashboard">
             <Button
