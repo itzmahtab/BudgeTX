@@ -1,13 +1,12 @@
 import {
   BarChart3,
-  Receipt,
+  Wallet,
   PieChart,
-  CreditCard,
-  Globe,
-  Zap,
+  ArrowRightLeft,
+  Bell,
+  TrendingUp,
 } from "lucide-react";
 
-// Stats Data
 export const statsData = [
   {
     value: "50K+",
@@ -27,85 +26,89 @@ export const statsData = [
   },
 ];
 
-// Features Data
 export const featuresData = [
   {
     icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
-    title: "Advanced Analytics",
+    title: "Track Every Penny",
     description:
-      "Get detailed insights into your spending patterns with AI-powered analytics",
+      "Log expenses and income in seconds. See where your money goes with clean charts and reports.",
   },
   {
-    icon: <Receipt className="h-8 w-8 text-blue-600" />,
-    title: "Smart Receipt Scanner",
+    icon: <Wallet className="h-8 w-8 text-blue-600" />,
+    title: "Multi-Account Dashboard",
     description:
-      "Extract data automatically from receipts using advanced AI technology",
+      "Manage all your accounts — checking, savings, credit cards — from one place.",
   },
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "Budget Planning",
-    description: "Create and manage budgets with intelligent recommendations",
+    title: "Smart Budgeting",
+    description:
+      "Set monthly budgets and get gentle nudges before you overspend.",
   },
   {
-    icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Account Support",
-    description: "Manage multiple accounts and credit cards in one place",
+    icon: <ArrowRightLeft className="h-8 w-8 text-blue-600" />,
+    title: "Recurring Transactions",
+    description:
+      "Set it and forget it. BudgeTX handles your rent, subscriptions, and bills automatically.",
   },
   {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    icon: <Bell className="h-8 w-8 text-blue-600" />,
+    title: "Friendly Alerts",
+    description:
+      "Get email reminders when you're close to your budget limit — no surprises.",
   },
   {
-    icon: <Zap className="h-8 w-8 text-blue-600" />,
-    title: "Automated Insights",
-    description: "Get automated financial insights and recommendations",
+    icon: <TrendingUp className="h-8 w-8 text-blue-600" />,
+    title: "Monthly Reports",
+    description:
+      "A simple breakdown of your month — income, expenses, and where you can improve.",
   },
 ];
 
-// How It Works Data
 export const howItWorksData = [
   {
-    icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "1. Create Your Account",
+    icon: <Wallet className="h-8 w-8 text-blue-600" />,
+    title: "1. Create an Account",
     description:
-      "Get started in minutes with our simple and secure sign-up process",
+      "Sign up in under a minute. No credit card needed — just your name and email.",
   },
   {
     icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
-    title: "2. Track Your Spending",
+    title: "2. Add Your First Transaction",
     description:
-      "Automatically categorize and track your transactions in real-time",
+      "Log an expense or income. Categorize it, pick an account, and you're off.",
   },
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "3. Get Insights",
+    title: "3. Watch Your Progress",
     description:
-      "Receive AI-powered insights and recommendations to optimize your finances",
+      "See your spending habits take shape. Adjust budgets, set goals, stay on track.",
   },
 ];
 
-// Testimonials Data
 export const testimonialsData = [
   {
+    initials: "SJ",
     name: "Sarah Johnson",
     role: "Small Business Owner",
-    image: "https://randomuser.me/api/portraits/women/75.jpg",
-    quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+    quote: "Finally, a finance tool that doesn't overcomplicate things. I track everything in minutes.",
+    borderColor: "border-l-blue-500",
+    gradient: "from-blue-500 to-purple-600",
   },
   {
+    initials: "MC",
     name: "Michael Chen",
     role: "Freelancer",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
-    quote:
-      "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
+    quote: "The recurring transaction feature is a lifesaver. My subscriptions and invoices auto-track.",
+    borderColor: "border-l-purple-500",
+    gradient: "from-purple-500 to-pink-600",
   },
   {
+    initials: "ER",
     name: "Emily Rodriguez",
     role: "Financial Advisor",
-    image: "https://randomuser.me/api/portraits/women/74.jpg",
-    quote:
-      "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
+    quote: "I recommend BudgeTX to clients who want simplicity. The multi-account setup and alerts are perfect.",
+    borderColor: "border-l-cyan-500",
+    gradient: "from-cyan-500 to-blue-600",
   },
 ];
