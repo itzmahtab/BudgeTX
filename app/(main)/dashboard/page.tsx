@@ -7,6 +7,7 @@ import { getCurrentBudget } from "@/actions/budget";
 import { AccountCard } from "./_components/account-card";
 import { CreateAccountDrawer } from "@/components/create-account-drawer";
 import { BudgetProgress } from "./_components/budget-progress";
+import { DashboardOverview } from "./_components/transaction-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 
@@ -33,6 +34,8 @@ export default async function DashboardPage() {
         initialBudget={budgetData?.budget || null}
         currentExpenses={budgetData?.currentExpenses || 0}
       />
+
+      <DashboardOverview accounts={accounts} transactions={transactions} />
 
       {/* Accounts Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
